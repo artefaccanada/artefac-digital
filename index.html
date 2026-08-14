@@ -12,752 +12,929 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
---ink: #0D0D0D;
---ink-mid: #3A3A3A;
---ink-muted: #6B6B6B;
---surface: #FFFFFF;
---surface-2: #F6F6F4;
---surface-3: #EEECEA;
---accent: #1A4731;
---accent-light: #E8F2EC;
---accent-mid: #2D6B4A;
---gold: #C8973A;
---gold-light: #FDF6E8;
---border: rgba(0,0,0,0.08);
---border-strong: rgba(0,0,0,0.15);
---radius: 10px;
---radius-lg: 16px;
---font-display: 'Space Grotesk', sans-serif;
---font-body: 'Inter', sans-serif;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-font-family: var(--font-body);
-color: var(--ink);
-background: var(--surface);
-line-height: 1.6;
-font-size: 16px;
--webkit-font-smoothing: antialiased;
-}
-/* NAV */
-nav {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 100;
-background: rgba(255,255,255,0.95);
-backdrop-filter: blur(12px);
-border-bottom: 1px solid var(--border);
-padding: 0 2rem;
-height: 64px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-.nav-logo {
-display: flex;
-align-items: center;
-gap: 10px;
-text-decoration: none;
-}
-.nav-logo-text {
-font-family: var(--font-display);
-font-weight: 600;
-font-size: 16px;
-color: var(--ink);
-letter-spacing: -0.3px;
-}
-.nav-logo-text span {
-color: var(--accent-mid);
-}
-.nav-links {
-display: flex;
-align-items: center;
-gap: 2rem;
-list-style: none;
-}
-.nav-links a {
-font-size: 14px;
-font-weight: 500;
-color: var(--ink-mid);
-text-decoration: none;
-transition: color 0.15s;
-}
-.nav-links a:hover { color: var(--accent); }
-.nav-cta {
-background: var(--accent) !important;
-color: white !important;
-padding: 8px 18px;
-border-radius: var(--radius);
-font-size: 14px !important;
-font-weight: 600 !important;
-transition: background 0.15s !important;
-}
-.nav-cta:hover { background: var(--accent-mid) !important; }
-/* SECTIONS */
-section { padding: 5rem 2rem; }
-.container {
-max-width: 1100px;
-margin: 0 auto;
-}
-/* HERO */
-.hero {
-padding-top: 8rem;
-padding-bottom: 5rem;
-background: var(--surface);
-border-bottom: 1px solid var(--border);
-}
-.hero-badge {
-display: inline-flex;
-align-items: center;
-gap: 6px;
-background: var(--accent-light);
-color: var(--accent);
-font-size: 12px;
-font-weight: 600;
-padding: 5px 12px;
-border-radius: 100px;
-margin-bottom: 1.5rem;
-letter-spacing: 0.3px;
-text-transform: uppercase;
-}
-.hero-badge::before {
-content: '';
-width: 6px;
-height: 6px;
-border-radius: 50%;
-background: var(--accent);
-}
-.hero h1 {
-font-family: var(--font-display);
-font-size: clamp(2.4rem, 5vw, 4rem);
-font-weight: 700;
-line-height: 1.1;
-letter-spacing: -1.5px;
-color: var(--ink);
-max-width: 780px;
-margin-bottom: 1.5rem;
-}
-.hero h1 em {
-font-style: normal;
-color: var(--accent-mid);
-}
-.hero-sub {
-font-size: 1.15rem;
-color: var(--ink-muted);
-max-width: 560px;
-margin-bottom: 2.5rem;
-line-height: 1.7;
-}
-.hero-actions {
-display: flex;
-gap: 1rem;
-align-items: center;
-flex-wrap: wrap;
-}
-.btn-primary {
-background: var(--accent);
-color: white;
-padding: 14px 28px;
-border-radius: var(--radius);
-font-size: 15px;
-font-weight: 600;
-text-decoration: none;
-transition: background 0.15s, transform 0.1s;
-display: inline-block;
-}
-.btn-primary:hover {
-background: var(--accent-mid);
-transform: translateY(-1px);
-}
-.btn-secondary {
-background: transparent;
-color: var(--ink-mid);
-padding: 14px 28px;
-border-radius: var(--radius);
-font-size: 15px;
-font-weight: 500;
-text-decoration: none;
-border: 1px solid var(--border-strong);
-transition: border-color 0.15s, color 0.15s;
-display: inline-block;
-}
-.btn-secondary:hover {
-border-color: var(--accent);
-color: var(--accent);
-}
-.hero-proof {
-margin-top: 3.5rem;
-padding-top: 2.5rem;
-border-top: 1px solid var(--border);
-display: flex;
-gap: 3rem;
-flex-wrap: wrap;
-}
-.proof-stat {
-display: flex;
-flex-direction: column;
-gap: 2px;
-}
-.proof-number {
-font-family: var(--font-display);
-font-size: 2rem;
-font-weight: 700;
-color: var(--ink);
-letter-spacing: -1px;
-}
-.proof-label {
-font-size: 13px;
-color: var(--ink-muted);
-font-weight: 400;
-}
-/* TRUST BAR */
-.trust-bar {
-background: var(--surface-2);
-border-bottom: 1px solid var(--border);
-padding: 1.25rem 2rem;
-}
-.trust-bar .container {
-display: flex;
-align-items: center;
-gap: 2rem;
-flex-wrap: wrap;
-}
-.trust-label {
-font-size: 12px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.8px;
-color: var(--ink-muted);
-white-space: nowrap;
-}
-.trust-items {
-display: flex;
-gap: 2rem;
-flex-wrap: wrap;
-align-items: center;
-}
-.trust-item {
-display: flex;
-align-items: center;
-gap: 6px;
-font-size: 13px;
-font-weight: 500;
-color: var(--ink-mid);
-}
-.trust-dot {
-width: 6px;
-height: 6px;
-border-radius: 50%;
-background: var(--accent);
-flex-shrink: 0;
-}
-/* SECTION HEADER */
-.section-eyebrow {
-font-size: 12px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 1px;
-color: var(--accent);
-margin-bottom: 0.75rem;
-}
-.section-title {
-font-family: var(--font-display);
-font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-font-weight: 700;
-letter-spacing: -0.8px;
-line-height: 1.15;
-color: var(--ink);
-margin-bottom: 1rem;
-}
-.section-sub {
-font-size: 1.05rem;
-color: var(--ink-muted);
-max-width: 540px;
-line-height: 1.7;
-}
-.section-header {
-margin-bottom: 3.5rem;
-}
-/* SERVICES */
-.services-bg { background: var(--surface); }
-.services-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 1.5rem;
-}
-.service-card {
-background: var(--surface);
-border: 1px solid var(--border);
-border-radius: var(--radius-lg);
-padding: 1.75rem;
-transition: border-color 0.2s, box-shadow 0.2s;
-position: relative;
-overflow: hidden;
-}
-.service-card:hover {
-border-color: var(--accent-mid);
-box-shadow: 0 4px 24px rgba(26,71,49,0.08);
-}
-.service-card.featured {
-border-color: var(--accent);
-background: var(--accent-light);
-}
-.service-icon {
-width: 44px;
-height: 44px;
-border-radius: 10px;
-background: var(--accent-light);
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 1.25rem;
-font-size: 20px;
-}
-.service-card.featured .service-icon {
-background: rgba(255,255,255,0.6);
-}
-.service-card h3 {
-font-family: var(--font-display);
-font-size: 1.1rem;
-font-weight: 600;
-color: var(--ink);
-margin-bottom: 0.5rem;
-letter-spacing: -0.3px;
-}
-.service-card p {
-font-size: 14px;
-color: var(--ink-muted);
-line-height: 1.65;
-}
-.service-tag {
-display: inline-block;
-margin-top: 1rem;
-font-size: 11px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-color: var(--accent);
-background: var(--accent-light);
-padding: 3px 8px;
-border-radius: 4px;
-}
-.service-card.featured .service-tag {
-background: rgba(255,255,255,0.6);
-}
-/* HOW IT WORKS */
-.how-bg { background: var(--surface-2); }
-.steps-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 0;
-position: relative;
-}
-.step {
-padding: 2rem;
-position: relative;
-}
-.step:not(:last-child)::after {
-content: '→';
-position: absolute;
-right: -10px;
-top: 2.5rem;
-font-size: 1.2rem;
-color: var(--border-strong);
-z-index: 1;
-}
-.step-number {
-font-family: var(--font-display);
-font-size: 3rem;
-font-weight: 700;
-color: var(--border);
-line-height: 1;
-margin-bottom: 1rem;
-letter-spacing: -2px;
-}
-.step h3 {
-font-family: var(--font-display);
-font-size: 1rem;
-font-weight: 600;
-color: var(--ink);
-margin-bottom: 0.5rem;
-}
-.step p {
-font-size: 14px;
-color: var(--ink-muted);
-line-height: 1.6;
-}
-/* PORTFOLIO */
-.portfolio-bg { background: var(--surface); }
-.portfolio-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 1.5rem;
-}
-.portfolio-card {
-border: 1px solid var(--border);
-border-radius: var(--radius-lg);
-overflow: hidden;
-transition: border-color 0.2s;
-}
-.portfolio-card:hover {
-border-color: var(--border-strong);
-}
-.portfolio-card-header {
-padding: 1.5rem;
-border-bottom: 1px solid var(--border);
-display: flex;
-align-items: flex-start;
-justify-content: space-between;
-gap: 1rem;
-}
-.portfolio-icon {
-width: 48px;
-height: 48px;
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 22px;
-flex-shrink: 0;
-}
-.portfolio-status {
-font-size: 11px;
-font-weight: 600;
-padding: 4px 10px;
-border-radius: 100px;
-}
-.status-live {
-background: #E8F5E9;
-color: #2E7D32;
-}
-.status-building {
-background: var(--gold-light);
-color: #7A5C1E;
-}
-.portfolio-card-body {
-padding: 1.5rem;
-}
-.portfolio-card-body h3 {
-font-family: var(--font-display);
-font-size: 1.05rem;
-font-weight: 600;
-color: var(--ink);
-margin-bottom: 0.4rem;
-letter-spacing: -0.2px;
-}
-.portfolio-card-body p {
-font-size: 13.5px;
-color: var(--ink-muted);
-line-height: 1.6;
-margin-bottom: 1rem;
-}
-.portfolio-tech {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-}
-.tech-pill {
-font-size: 11px;
-font-weight: 500;
-padding: 3px 8px;
-border-radius: 4px;
-background: var(--surface-2);
-color: var(--ink-muted);
-border: 1px solid var(--border);
-}
-/* GOVERNMENT SECTION */
-.gov-bg {
-background: var(--accent);
-color: white;
-}
-.gov-bg .section-eyebrow {
-color: rgba(255,255,255,0.6);
-}
-.gov-bg .section-title {
-color: white;
-}
-.gov-bg .section-sub {
-color: rgba(255,255,255,0.75);
-}
-.gov-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 4rem;
-align-items: start;
-}
-.gov-details {
-display: flex;
-flex-direction: column;
-gap: 1.25rem;
-}
-.gov-detail-item {
-background: rgba(255,255,255,0.08);
-border: 1px solid rgba(255,255,255,0.15);
-border-radius: var(--radius);
-padding: 1.25rem;
-}
-.gov-detail-item .label {
-font-size: 11px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.8px;
-color: rgba(255,255,255,0.55);
-margin-bottom: 4px;
-}
-.gov-detail-item .value {
-font-size: 15px;
-font-weight: 500;
-color: white;
-}
-.gov-detail-item .value a {
-color: #8FD4AE;
-text-decoration: none;
-}
-.gov-capabilities {
-display: flex;
-flex-direction: column;
-gap: 1rem;
-}
-.gov-cap {
-display: flex;
-gap: 12px;
-align-items: flex-start;
-}
-.gov-cap-icon {
-width: 32px;
-height: 32px;
-border-radius: 8px;
-background: rgba(255,255,255,0.1);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 15px;
-flex-shrink: 0;
-margin-top: 2px;
-}
-.gov-cap-text h4 {
-font-size: 15px;
-font-weight: 600;
-color: white;
-margin-bottom: 2px;
-}
-.gov-cap-text p {
-font-size: 13px;
-color: rgba(255,255,255,0.65);
-line-height: 1.5;
-}
-/* WHY ARTEFAC */
-.why-bg { background: var(--surface-2); }
-.why-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-gap: 1.5rem;
-}
-.why-card {
-background: var(--surface);
-border: 1px solid var(--border);
-border-radius: var(--radius-lg);
-padding: 1.75rem;
-}
-.why-card .icon {
-font-size: 1.75rem;
-margin-bottom: 1rem;
-display: block;
-}
-.why-card h3 {
-font-family: var(--font-display);
-font-size: 1rem;
-font-weight: 600;
-color: var(--ink);
-margin-bottom: 0.5rem;
-}
-.why-card p {
-font-size: 14px;
-color: var(--ink-muted);
-line-height: 1.65;
-}
-/* ABOUT */
-.about-bg { background: var(--surface); }
-.about-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 4rem;
-align-items: center;
-}
-.about-content p {
-font-size: 15px;
-color: var(--ink-mid);
-line-height: 1.8;
-margin-bottom: 1.25rem;
-}
-.about-ventures {
-display: flex;
-flex-direction: column;
-gap: 0.75rem;
-}
-.venture-item {
-display: flex;
-align-items: center;
-gap: 12px;
-padding: 1rem 1.25rem;
-border: 1px solid var(--border);
-border-radius: var(--radius);
-background: var(--surface);
-text-decoration: none;
-transition: border-color 0.2s;
-}
-.venture-item:hover {
-border-color: var(--accent-mid);
-}
-.venture-dot {
-width: 8px;
-height: 8px;
-border-radius: 50%;
-flex-shrink: 0;
-}
-.venture-info { flex: 1; }
-.venture-name {
-font-size: 14px;
-font-weight: 600;
-color: var(--ink);
-}
-.venture-desc {
-font-size: 12px;
-color: var(--ink-muted);
-margin-top: 1px;
-}
-.venture-arrow {
-font-size: 14px;
-color: var(--ink-muted);
-}
-/* CTA */
-.cta-section {
-background: var(--surface-2);
-border-top: 1px solid var(--border);
-}
-.cta-box {
-background: var(--surface);
-border: 1px solid var(--border);
-border-radius: var(--radius-lg);
-padding: 3.5rem;
-text-align: center;
-max-width: 680px;
-margin: 0 auto;
-}
-.cta-box h2 {
-font-family: var(--font-display);
-font-size: 2rem;
-font-weight: 700;
-letter-spacing: -0.8px;
-color: var(--ink);
-margin-bottom: 0.75rem;
-}
-.cta-box p {
-font-size: 1rem;
-color: var(--ink-muted);
-margin-bottom: 2rem;
-line-height: 1.7;
-}
-.cta-actions {
-display: flex;
-gap: 1rem;
-justify-content: center;
-flex-wrap: wrap;
-}
-/* FOOTER */
-footer {
-background: var(--ink);
-color: rgba(255,255,255,0.6);
-padding: 3rem 2rem;
-}
-.footer-inner {
-max-width: 1100px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: 2fr 1fr 1fr 1fr;
-gap: 3rem;
-}
-.footer-brand p {
-font-size: 13px;
-line-height: 1.7;
-margin-top: 0.75rem;
-max-width: 260px;
-}
-.footer-logo {
-display: flex;
-align-items: center;
-gap: 8px;
-}
-.footer-logo-text {
-font-family: var(--font-display);
-font-weight: 600;
-font-size: 15px;
-color: white;
-}
-footer h4 {
-font-size: 12px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.8px;
-color: rgba(255,255,255,0.4);
-margin-bottom: 1rem;
-}
-footer ul {
-list-style: none;
-display: flex;
-flex-direction: column;
-gap: 0.5rem;
-}
-footer ul li a {
-font-size: 13px;
-color: rgba(255,255,255,0.6);
-text-decoration: none;
-transition: color 0.15s;
-}
-footer ul li a:hover { color: white; }
-.footer-bottom {
-max-width: 1100px;
-margin: 2.5rem auto 0;
-padding-top: 1.5rem;
-border-top: 1px solid rgba(255,255,255,0.08);
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 1rem;
-flex-wrap: wrap;
-}
-.footer-bottom p {
-font-size: 12px;
-color: rgba(255,255,255,0.35);
-}
-.footer-canada {
-display: flex;
-align-items: center;
-gap: 6px;
-font-size: 12px;
-color: rgba(255,255,255,0.35);
-}
-/* RESPONSIVE */
-@media (max-width: 768px) {
-nav { padding: 0 1rem; }
-.nav-links { display: none; }
-section { padding: 3.5rem 1.25rem; }
-.hero { padding-top: 6rem; padding-bottom: 3.5rem; }
-.hero h1 { font-size: 2.2rem; }
-.hero-proof { gap: 1.5rem; }
-.gov-grid { grid-template-columns: 1fr; gap: 2rem; }
-.about-grid { grid-template-columns: 1fr; gap: 2rem; }
-.footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-.cta-box { padding: 2.5rem 1.5rem; }
-.step:not(:last-child)::after { display: none; }
-.steps-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 480px) {
-.steps-grid { grid-template-columns: 1fr; }
-.footer-inner { grid-template-columns: 1fr; }
-}
+  :root {
+    --ink: #0D0D0D;
+    --ink-mid: #3A3A3A;
+    --ink-muted: #6B6B6B;
+    --surface: #FFFFFF;
+    --surface-2: #F6F6F4;
+    --surface-3: #EEECEA;
+    --accent: #1A4731;
+    --accent-light: #E8F2EC;
+    --accent-mid: #2D6B4A;
+    --gold: #C8973A;
+    --gold-light: #FDF6E8;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
+    --radius: 10px;
+    --radius-lg: 16px;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--surface);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-logo-text span {
+    color: var(--accent-mid);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: var(--radius);
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    transition: background 0.15s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent-mid) !important; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--ink);
+    max-width: 780px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent-mid);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--ink-muted);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-mid);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink-mid);
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--border-strong);
+    transition: border-color 0.15s, color 0.15s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-proof {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .proof-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .proof-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+
+  .proof-label {
+    font-size: 13px;
+    color: var(--ink-muted);
+    font-weight: 400;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+  }
+
+  .trust-bar .container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .trust-items {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-mid);
+  }
+
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* SECTION HEADER */
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  .section-header {
+    margin-bottom: 3.5rem;
+  }
+
+  /* SERVICES */
+  .services-bg { background: var(--surface); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    border-color: var(--accent-mid);
+    box-shadow: 0 4px 24px rgba(26,71,49,0.08);
+  }
+
+  .service-card.featured {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 20px;
+  }
+
+  .service-card.featured .service-icon {
+    background: rgba(255,255,255,0.6);
+  }
+
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .service-card.featured .service-tag {
+    background: rgba(255,255,255,0.6);
+  }
+
+  /* HOW IT WORKS */
+  .how-bg { background: var(--surface-2); }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    position: relative;
+  }
+
+  .step {
+    padding: 2rem;
+    position: relative;
+  }
+
+  .step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 2.5rem;
+    font-size: 1.2rem;
+    color: var(--border-strong);
+    z-index: 1;
+  }
+
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
+  }
+
+  .step h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-bg { background: var(--surface); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .portfolio-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .portfolio-card:hover {
+    border-color: var(--border-strong);
+  }
+
+  .portfolio-card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .portfolio-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .portfolio-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .status-live {
+    background: #E8F5E9;
+    color: #2E7D32;
+  }
+
+  .status-building {
+    background: var(--gold-light);
+    color: #7A5C1E;
+  }
+
+  .portfolio-card-body {
+    padding: 1.5rem;
+  }
+
+  .portfolio-card-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.2px;
+  }
+
+  .portfolio-card-body p {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tech-pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--surface-2);
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+  }
+
+  /* GOVERNMENT SECTION */
+  .gov-bg {
+    background: var(--accent);
+    color: white;
+  }
+
+  .gov-bg .section-eyebrow {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .gov-bg .section-title {
+    color: white;
+  }
+
+  .gov-bg .section-sub {
+    color: rgba(255,255,255,0.75);
+  }
+
+  .gov-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .gov-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .gov-detail-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+
+  .gov-detail-item .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 4px;
+  }
+
+  .gov-detail-item .value {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .gov-detail-item .value a {
+    color: #8FD4AE;
+    text-decoration: none;
+  }
+
+  .gov-capabilities {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .gov-cap {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .gov-cap-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .gov-cap-text h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2px;
+  }
+
+  .gov-cap-text p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  /* WHY ARTEFAC */
+  .why-bg { background: var(--surface-2); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+  }
+
+  .why-card .icon {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .why-card h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .why-card p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  /* ABOUT */
+  .about-bg { background: var(--surface); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-content p {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-ventures {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .venture-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .venture-item:hover {
+    border-color: var(--accent-mid);
+  }
+
+  .venture-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .venture-info { flex: 1; }
+
+  .venture-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .venture-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 1px;
+  }
+
+  .venture-arrow {
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+  }
+
+  .cta-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 3.5rem;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cta-box h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-box p {
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 3rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 0.75rem;
+    max-width: 260px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-logo-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+  }
+
+  footer h4 {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1rem;
+  }
+
+  footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  footer ul li a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  footer ul li a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-canada {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1.25rem; }
+    .hero { padding-top: 6rem; padding-bottom: 3.5rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-proof { gap: 1.5rem; }
+    .gov-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .cta-box { padding: 2.5rem 1.5rem; }
+    .step:not(:last-child)::after { display: none; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+
+  /* SOCIAL MEDIA */
+  .social-bar {
+    background: var(--ink);
+    padding: 1rem 2rem;
+  }
+
+  .social-bar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .social-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.15s;
+  }
+
+  .social-link:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .social-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
 </style>
 </head>
 <body>
@@ -765,11 +942,10 @@ section { padding: 3.5rem 1.25rem; }
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <span class="nav-logo-text">artefac<span>.digital</span></span>
+<span class="nav-logo-text">artefac<span>.digital</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="https://artefac.gumroad.com" target="_blank" rel="noopener">Store</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#government">Government</a></li>
     <li><a href="#about">About</a></li>
@@ -777,6 +953,31 @@ section { padding: 3.5rem 1.25rem; }
     <li><a href="#contact" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
+
+<!-- SOCIAL BAR -->
+<div class="social-bar">
+  <div class="container">
+    <span class="social-label">Follow us — @artefac.digital</span>
+    <div class="social-links">
+      <a href="https://www.facebook.com/artefac.digital/" target="_blank" rel="noopener" class="social-link">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <a href="https://www.instagram.com/artefac.digital/" target="_blank" rel="noopener" class="social-link">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.tiktok.com/@artefac.digital" target="_blank" rel="noopener" class="social-link">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+        TikTok
+      </a>
+      <a href="https://www.threads.com/@artefac.digital" target="_blank" rel="noopener" class="social-link">
+        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.473 12.01v-.017c.027-3.579.877-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.594 12c.022 3.089.713 5.5 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.7-.872-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.583-1.308-.88-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 8.54C8.867 6.895 10.63 6.01 12.583 6.01c1.28.012 2.369.37 3.243 1.063.862.683 1.45 1.637 1.75 2.836.201.783.278 1.648.22 2.575a7.108 7.108 0 011.9 1.829c.965 1.578 1.02 3.466-.138 5.004C18.16 21.109 16 23.98 12.186 24z"/></svg>
+        Threads
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -794,7 +995,7 @@ section { padding: 3.5rem 1.25rem; }
         <span class="proof-label">Years operating in Canada</span>
       </div>
       <div class="proof-stat">
-        <span class="proof-number">33</span>
+        <span class="proof-number">6</span>
         <span class="proof-label">Live AI products deployed</span>
       </div>
       <div class="proof-stat">
@@ -802,8 +1003,8 @@ section { padding: 3.5rem 1.25rem; }
         <span class="proof-label">Industry verticals served</span>
       </div>
       <div class="proof-stat">
-        <span class="proof-number">🇺🇸🇨🇦</span>
-        <span class="proof-label">Exporting Canada → USA since 2004</span>
+        <span class="proof-number">4</span>
+        <span class="proof-label">Active social media platforms</span>
       </div>
       <div class="proof-stat">
         <span class="proof-number">Band 1</span>
@@ -819,8 +1020,8 @@ section { padding: 3.5rem 1.25rem; }
     <span class="trust-label">Serving</span>
     <div class="trust-items">
       <div class="trust-item"><span class="trust-dot"></span>Restaurant owners across Canada</div>
-      <div class="trust-item"><span class="trust-dot"></span>Dental &amp; medical clinics</div>
-      <div class="trust-item"><span class="trust-dot"></span>HVAC &amp; trade businesses</div>
+      <div class="trust-item"><span class="trust-dot"></span>Dental & medical clinics</div>
+      <div class="trust-item"><span class="trust-dot"></span>HVAC & trade businesses</div>
       <div class="trust-item"><span class="trust-dot"></span>Accounting firms</div>
       <div class="trust-item"><span class="trust-dot"></span>Real estate professionals</div>
       <div class="trust-item"><span class="trust-dot"></span>US-based clients via artefac.com</div>
@@ -851,7 +1052,7 @@ section { padding: 3.5rem 1.25rem; }
       </div>
       <div class="service-card">
         <div class="service-icon">💬</div>
-        <h3>AI Chatbots &amp; Virtual Assistants</h3>
+        <h3>AI Chatbots & Virtual Assistants</h3>
         <p>Intelligent bots that handle inquiries, book appointments, qualify leads, and respond to customers — across web, email, and messaging platforms.</p>
         <span class="service-tag">Customer Service</span>
       </div>
@@ -863,7 +1064,7 @@ section { padding: 3.5rem 1.25rem; }
       </div>
       <div class="service-card">
         <div class="service-icon">🏥</div>
-        <h3>Healthcare &amp; Clinic Admin AI</h3>
+        <h3>Healthcare & Clinic Admin AI</h3>
         <p>Automate new patient intake, appointment scheduling, staff notifications, and follow-up communications for medical and dental practices.</p>
         <span class="service-tag">Healthcare</span>
       </div>
@@ -878,7 +1079,7 @@ section { padding: 3.5rem 1.25rem; }
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-bg" id="process">
+<section class="how-bg">
   <div class="container">
     <div class="section-header">
       <p class="section-eyebrow">Our Process</p>
@@ -897,12 +1098,12 @@ section { padding: 3.5rem 1.25rem; }
       </div>
       <div class="step">
         <div class="step-number">03</div>
-        <h3>Build &amp; Test</h3>
+        <h3>Build & Test</h3>
         <p>We build the complete system — Claude API, Make.com, integrations — and test it against real scenarios.</p>
       </div>
       <div class="step">
         <div class="step-number">04</div>
-        <h3>Deploy &amp; Support</h3>
+        <h3>Deploy & Support</h3>
         <p>Go live with your automation running. Monthly support available to optimize and expand.</p>
       </div>
     </div>
@@ -915,12 +1116,12 @@ section { padding: 3.5rem 1.25rem; }
     <div class="section-header">
       <p class="section-eyebrow">Deployed Products</p>
       <h2 class="section-title">Real AI systems,<br>not slide decks</h2>
-      <p class="section-sub">28 live products deployed and available right now. These are our proof of capability — not aspirational case studies.</p>
+      <p class="section-sub">Every product listed here is live, tested, and available. These are our proof of capability — not aspirational case studies.</p>
     </div>
     <div class="portfolio-grid">
       <div class="portfolio-card">
         <div class="portfolio-card-header">
-          <div class="portfolio-icon">🦷</div>
+          <div class="portfolio-icon" style="background:#E8F2EC;">🦷</div>
           <span class="portfolio-status status-live">Live</span>
         </div>
         <div class="portfolio-card-body">
@@ -936,23 +1137,23 @@ section { padding: 3.5rem 1.25rem; }
       </div>
       <div class="portfolio-card">
         <div class="portfolio-card-header">
-          <div class="portfolio-icon">🍽️</div>
+          <div class="portfolio-icon" style="background:#FDF6E8;">🍽️</div>
           <span class="portfolio-status status-building">Building</span>
         </div>
         <div class="portfolio-card-body">
-          <h3>ForRestaurants.AI — Video Marketing Platform</h3>
-          <p>AI-powered video marketing platform for restaurant owners. Upload face, logo, and menu — get branded TikTok, Reels, and YouTube Shorts automatically.</p>
+          <h3>ForRestaurants.AI — AI Video Studio</h3>
+          <p>Turn restaurant photos, a logo, and a selfie into scroll-stopping TikToks, Reels, and Shorts in minutes. No editing skills required. Free first video. Plans from $17.99/month.</p>
           <div class="portfolio-tech">
-            <span class="tech-pill">HeyGen AI</span>
-            <span class="tech-pill">React/Next.js</span>
-            <span class="tech-pill">AWS S3</span>
-            <span class="tech-pill">FFmpeg</span>
+            <span class="tech-pill">AI Face Swap</span>
+            <span class="tech-pill">React/Vite</span>
+            <span class="tech-pill">Cloudflare</span>
+            <span class="tech-pill">HD 1080×1920</span>
           </div>
         </div>
       </div>
       <div class="portfolio-card">
         <div class="portfolio-card-header">
-          <div class="portfolio-icon">🏠</div>
+          <div class="portfolio-icon" style="background:#EEF2FF;">🏠</div>
           <span class="portfolio-status status-live">Live</span>
         </div>
         <div class="portfolio-card-body">
@@ -967,11 +1168,11 @@ section { padding: 3.5rem 1.25rem; }
       </div>
       <div class="portfolio-card">
         <div class="portfolio-card-header">
-          <div class="portfolio-icon">🔧</div>
+          <div class="portfolio-icon" style="background:#FFF3E0;">🔧</div>
           <span class="portfolio-status status-live">Live</span>
         </div>
         <div class="portfolio-card-body">
-          <h3>HVAC &amp; Trades Service Automation</h3>
+          <h3>HVAC & Trades Service Automation</h3>
           <p>Automates service inquiry triage, seasonal maintenance reminders, job scheduling, and technician dispatch notifications for trade businesses.</p>
           <div class="portfolio-tech">
             <span class="tech-pill">Claude API</span>
@@ -982,11 +1183,11 @@ section { padding: 3.5rem 1.25rem; }
       </div>
       <div class="portfolio-card">
         <div class="portfolio-card-header">
-          <div class="portfolio-icon">💆</div>
+          <div class="portfolio-icon" style="background:#F3E8FF;">💆</div>
           <span class="portfolio-status status-live">Live</span>
         </div>
         <div class="portfolio-card-body">
-          <h3>Spa &amp; Salon Client Retention System</h3>
+          <h3>Spa & Salon Client Retention System</h3>
           <p>Rebooking automation, review collection, loyalty follow-ups, and personalized appointment reminders for wellness businesses.</p>
           <div class="portfolio-tech">
             <span class="tech-pill">Claude API</span>
@@ -997,7 +1198,7 @@ section { padding: 3.5rem 1.25rem; }
       </div>
       <div class="portfolio-card">
         <div class="portfolio-card-header">
-          <div class="portfolio-icon">📊</div>
+          <div class="portfolio-icon" style="background:#E8F5E9;">📊</div>
           <span class="portfolio-status status-live">Live</span>
         </div>
         <div class="portfolio-card-body">
@@ -1017,12 +1218,42 @@ section { padding: 3.5rem 1.25rem; }
 <!-- GOVERNMENT -->
 <section class="gov-bg" id="government">
   <div class="container">
-    <div class="section-header">
-      <p class="section-eyebrow">Government Procurement</p>
-      <h2 class="section-title">Working with<br>Canadian government</h2>
-      <p class="section-sub">artefac is a Canadian-owned and operated AI solutions provider actively pursuing federal and municipal procurement opportunities. We are registered with PSPC and applying for the AI Source List.</p>
-    </div>
     <div class="gov-grid">
+      <div>
+        <p class="section-eyebrow">Government Procurement</p>
+        <h2 class="section-title" style="color:white;">Working with<br>Canadian government</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.7); margin-bottom:2.5rem;">artefac is a Canadian-owned and operated AI solutions provider actively pursuing federal and municipal procurement opportunities. We are registered with PSPC and applying for the AI Source List.</p>
+        <div class="gov-capabilities">
+          <div class="gov-cap">
+            <div class="gov-cap-icon">🏛️</div>
+            <div class="gov-cap-text">
+              <h4>Citizen Service Chatbots</h4>
+              <p>AI-powered 311 assistants, permit inquiry bots, and bylaw information systems for municipalities.</p>
+            </div>
+          </div>
+          <div class="gov-cap">
+            <div class="gov-cap-icon">📋</div>
+            <div class="gov-cap-text">
+              <h4>Document Processing Automation</h4>
+              <p>AI extraction and routing of application forms, intake documents, and approval workflows.</p>
+            </div>
+          </div>
+          <div class="gov-cap">
+            <div class="gov-cap-icon">🏥</div>
+            <div class="gov-cap-text">
+              <h4>Healthcare Admin AI</h4>
+              <p>Clinic and public health admin automation — patient intake, triage routing, staff alerts.</p>
+            </div>
+          </div>
+          <div class="gov-cap">
+            <div class="gov-cap-icon">🔄</div>
+            <div class="gov-cap-text">
+              <h4>Workflow & Process Automation</h4>
+              <p>End-to-end departmental workflow automation using Make.com and Claude API integration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="gov-details">
         <div class="gov-detail-item">
           <div class="label">Company Status</div>
@@ -1049,42 +1280,12 @@ section { padding: 3.5rem 1.25rem; }
           <div class="value">Registered — CanadaBuys supplier profile active</div>
         </div>
       </div>
-      <div class="gov-capabilities">
-        <div class="gov-cap">
-          <div class="gov-cap-icon">🏛️</div>
-          <div class="gov-cap-text">
-            <h4>Citizen Service Chatbots</h4>
-            <p>AI-powered 311 assistants, permit inquiry bots, and bylaw information systems for municipalities.</p>
-          </div>
-        </div>
-        <div class="gov-cap">
-          <div class="gov-cap-icon">📋</div>
-          <div class="gov-cap-text">
-            <h4>Document Processing Automation</h4>
-            <p>AI extraction and routing of application forms, intake documents, and approval workflows.</p>
-          </div>
-        </div>
-        <div class="gov-cap">
-          <div class="gov-cap-icon">🏥</div>
-          <div class="gov-cap-text">
-            <h4>Healthcare Admin AI</h4>
-            <p>Clinic and public health admin automation — patient intake, triage routing, staff alerts.</p>
-          </div>
-        </div>
-        <div class="gov-cap">
-          <div class="gov-cap-icon">🔄</div>
-          <div class="gov-cap-text">
-            <h4>Workflow &amp; Process Automation</h4>
-            <p>End-to-end departmental workflow automation using Make.com and Claude API integration.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- WHY ARTEFAC -->
-<section class="why-bg" id="why">
+<section class="why-bg">
   <div class="container">
     <div class="section-header">
       <p class="section-eyebrow">Why artefac</p>
@@ -1118,71 +1319,72 @@ section { padding: 3.5rem 1.25rem; }
 <!-- ABOUT -->
 <section class="about-bg" id="about">
   <div class="container">
-    <div class="section-header">
-      <p class="section-eyebrow">About artefac</p>
-      <h2 class="section-title">Two decades of Canadian business.<br>One sharp AI focus.</h2>
-    </div>
     <div class="about-grid">
       <div class="about-content">
+        <p class="section-eyebrow">About artefac</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Two decades of Canadian business. One sharp AI focus.</h2>
         <p>artefac was founded in Mississauga, Ontario in 2004. What started as a digital solutions company has grown into a multi-venture North American operation — exporting products and services to customers across the United States through <strong>artefac.com</strong> since day one in 2004.</p>
         <p>For over 20 years, artefac.com has served US-based buyers — from retail furniture to digital products — shipping and delivering across all 50 states. That cross-border track record means we understand both Canadian and American business environments inside out.</p>
         <p>artefac.digital is our dedicated AI automation division — bringing two decades of Canadian and US business operations into the AI era. We are one of the very few Canadian AI firms with a proven 20+ year cross-border operating history.</p>
       </div>
-      <div class="about-ventures">
-        <a href="https://artefac.digital" class="venture-item">
-          <div class="venture-dot" style="background:var(--accent)"></div>
-          <div class="venture-info">
-            <div class="venture-name">artefac.digital</div>
-            <div class="venture-desc">AI automation solutions — you are here</div>
-          </div>
-          <span class="venture-arrow">↗</span>
-        </a>
-        <a href="https://www.artefac.com" class="venture-item">
-          <div class="venture-dot" style="background:#2563EB"></div>
-          <div class="venture-info">
-            <div class="venture-name">artefac.com</div>
-            <div class="venture-desc">USA export operations — serving all 50 states since 2004</div>
-          </div>
-          <span class="venture-arrow">↗</span>
-        </a>
-        <a href="https://www.artefac.ca" class="venture-item">
-          <div class="venture-dot" style="background:#DC2626"></div>
-          <div class="venture-info">
-            <div class="venture-name">artefac.ca</div>
-            <div class="venture-desc">Canadian retail furniture — operating since 2004</div>
-          </div>
-          <span class="venture-arrow">↗</span>
-        </a>
-        <a href="https://forrestaurants.ca" class="venture-item">
-          <div class="venture-dot" style="background:#D97706"></div>
-          <div class="venture-info">
-            <div class="venture-name">ForRestaurants.ca</div>
-            <div class="venture-desc">Restaurant furniture wholesale supply</div>
-          </div>
-          <span class="venture-arrow">↗</span>
-        </a>
-        <a href="https://forrestaurants.ai" class="venture-item">
-          <div class="venture-dot" style="background:#7C3AED"></div>
-          <div class="venture-info">
-            <div class="venture-name">ForRestaurants.AI</div>
-            <div class="venture-desc">AI video marketing platform for restaurants</div>
-          </div>
-          <span class="venture-arrow">↗</span>
-        </a>
-        <a href="https://artefac.gumroad.com" class="venture-item">
-          <div class="venture-dot" style="background:var(--gold)"></div>
-          <div class="venture-info">
-            <div class="venture-name">artefac Gumroad Store</div>
-            <div class="venture-desc">DIY AI automation blueprints from $49</div>
-          </div>
-          <span class="venture-arrow">↗</span>
-        </a>
+      <div>
+        <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink-muted);margin-bottom:1rem;">Our Ventures</p>
+        <div class="about-ventures">
+          <a href="https://artefac.digital" class="venture-item" target="_blank">
+            <span class="venture-dot" style="background:#1A4731;"></span>
+            <div class="venture-info">
+              <div class="venture-name">artefac.digital</div>
+              <div class="venture-desc">AI automation solutions — you are here</div>
+            </div>
+            <span class="venture-arrow">↗</span>
+          </a>
+          <a href="https://www.artefac.com" class="venture-item" target="_blank">
+            <span class="venture-dot" style="background:#B22222;"></span>
+            <div class="venture-info">
+              <div class="venture-name">artefac.com</div>
+              <div class="venture-desc">USA export operations — serving all 50 states since 2004</div>
+            </div>
+            <span class="venture-arrow">↗</span>
+          </a>
+          <a href="https://www.artefac.ca" class="venture-item" target="_blank">
+            <span class="venture-dot" style="background:#C8973A;"></span>
+            <div class="venture-info">
+              <div class="venture-name">artefac.ca</div>
+              <div class="venture-desc">Canadian retail furniture — operating since 2004</div>
+            </div>
+            <span class="venture-arrow">↗</span>
+          </a>
+          <a href="https://forrestaurants.ca" class="venture-item" target="_blank">
+            <span class="venture-dot" style="background:#C8973A;"></span>
+            <div class="venture-info">
+              <div class="venture-name">ForRestaurants.ca</div>
+              <div class="venture-desc">Restaurant furniture wholesale supply</div>
+            </div>
+            <span class="venture-arrow">↗</span>
+          </a>
+          <a href="https://forrestaurants.ai" class="venture-item" target="_blank">
+            <span class="venture-dot" style="background:#2D6B4A;"></span>
+            <div class="venture-info">
+              <div class="venture-name">ForRestaurants.AI</div>
+              <div class="venture-desc">AI video studio — selfie + photos = TikToks, Reels &amp; Shorts</div>
+            </div>
+            <span class="venture-arrow">↗</span>
+          </a>
+          <a href="https://artefac.gumroad.com" class="venture-item" target="_blank">
+            <span class="venture-dot" style="background:#888;"></span>
+            <div class="venture-info">
+              <div class="venture-name">artefac gumroad Store</div>
+              <div class="venture-desc">DIY AI automation blueprints from $49</div>
+            </div>
+            <span class="venture-arrow">↗</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA / CONTACT -->
+<!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="container">
     <div class="cta-box">
@@ -1191,7 +1393,7 @@ section { padding: 3.5rem 1.25rem; }
       <div class="cta-actions">
         <a href="tel:6479991198" class="btn-primary">📞 647-999-1198</a>
         <a href="mailto:info@artefac.com" class="btn-secondary">info@artefac.com</a>
-        <a href="https://artefac.gumroad.com" class="btn-secondary" target="_blank" rel="noopener">Browse AI Blueprints</a>
+        <a href="https://artefac.gumroad.com" class="btn-secondary">Browse AI Blueprints</a>
       </div>
     </div>
   </div>
@@ -1202,7 +1404,7 @@ section { padding: 3.5rem 1.25rem; }
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-logo">
-        <span class="footer-logo-text">artefac.digital</span>
+    <span class="footer-logo-text">artefac.digital</span>
       </div>
       <p>Canadian AI automation solutions. Mississauga, Ontario. Operating in Canada &amp; USA since 2004. Government-ready, cross-border proven.</p>
     </div>
@@ -1233,12 +1435,19 @@ section { padding: 3.5rem 1.25rem; }
         <li><a href="https://artefac.com">artefac.com (USA)</a></li>
         <li><a href="https://artefac.ca">artefac.ca (Canada)</a></li>
         <li><a href="mailto:info@artefac.com">info@artefac.com</a></li>
+        <li><a href="https://www.facebook.com/artefac.digital/" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/artefac.digital/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@artefac.digital" target="_blank">TikTok</a></li>
+        <li><a href="https://www.threads.com/@artefac.digital" target="_blank">Threads</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2004–2026 artefac digital solutions. All rights reserved. Mississauga, Ontario, Canada.</p>
-    <div class="footer-canada">🇨🇦 Proudly Canadian — operating since 2004</div>
+    <div class="footer-canada">
+      <span>🇨🇦</span>
+      <span>Proudly Canadian — operating since 2004</span>
+    </div>
   </div>
 </footer>
 
