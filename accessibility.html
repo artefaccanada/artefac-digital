@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility Statement — artefac.digital</title>
+<meta name="description" content="artefac.digital accessibility statement — our commitment to WCAG 2.1 Level AA, measures taken, known gaps, and how to report issues.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D0D0D;
+  --ink-mid: #3A3A3A;
+  --ink-muted: #6B6B6B;
+  --surface: #FFFFFF;
+  --surface-2: #F6F6F4;
+  --accent: #1A4731;
+  --accent-light: #E8F2EC;
+  --accent-mid: #2D6B4A;
+  --gold: #C8973A;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.15);
+  --radius: 10px;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--surface);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus { top: 0; outline: 3px solid #FFD700; outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--accent-mid); outline-offset: 3px; border-radius: 3px; }
+a:focus-visible { outline: 3px solid var(--accent-mid); outline-offset: 3px; border-radius: 2px; }
+nav.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--gold);
+  border-top: 3px solid var(--gold);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-text { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); letter-spacing: -0.3px; }
+.nav-logo-text span { color: var(--accent-mid); }
+.nav-back { font-size: 13px; font-weight: 500; color: var(--ink-mid); text-decoration: none; border: 1px solid var(--border-strong); padding: 7px 14px; border-radius: var(--radius); transition: border-color 0.15s, color 0.15s; }
+.nav-back:hover { border-color: var(--accent); color: var(--accent); }
+main { max-width: 780px; margin: 0 auto; padding: 7rem 2rem 5rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -1px; line-height: 1.15; color: var(--ink); margin-bottom: 0.5rem; }
+.subtitle { font-size: 1rem; color: var(--ink-muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid var(--gold); }
+h2 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--ink); margin: 2.5rem 0 0.75rem; letter-spacing: -0.3px; }
+p { font-size: 15px; color: var(--ink-mid); line-height: 1.8; margin-bottom: 1rem; }
+ul { margin: 0 0 1rem 1.25rem; }
+ul li { font-size: 15px; color: var(--ink-mid); line-height: 1.8; margin-bottom: 0.35rem; }
+.status-block { background: var(--surface-2); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin: 2rem 0; }
+.status-block.partial { border-left-color: var(--gold); }
+.status-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--accent); margin-bottom: 4px; }
+.status-block.partial .status-label { color: var(--gold); }
+.status-block p { margin: 0; }
+.contact-box { background: var(--accent-light); border: 1px solid rgba(26,71,49,0.15); border-radius: var(--radius); padding: 1.5rem; margin-top: 3rem; }
+.contact-box h2 { margin-top: 0; }
+.contact-box a { color: var(--accent-mid); font-weight: 500; }
+.contact-box a:hover { text-decoration: underline; }
+footer.page-footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 1.5rem 2rem; text-align: center; font-size: 12px; border-top: 3px solid var(--gold); margin-top: 4rem; }
+footer.page-footer a { color: rgba(255,255,255,0.75); text-decoration: none; }
+footer.page-footer a:hover { color: #fff; }
+@media (max-width: 600px) { main { padding: 6rem 1.25rem 3.5rem; } }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="artefac.digital — home">
+    <span class="nav-logo-text">artefac<span>.digital</span></span>
+  </a>
+  <a href="/" class="nav-back">&larr; Back to site</a>
+</nav>
+
+<main id="main">
+  <p class="subtitle">Last reviewed: September 2026 &nbsp;&middot;&nbsp; Applies to: artefac.digital</p>
+  <h1>Accessibility Statement</h1>
+
+  <div class="status-block partial">
+    <div class="status-label">Compliance Status</div>
+    <p>artefac.digital is working toward conformance with <strong>WCAG 2.1 Level AA</strong>. Several success criteria have been implemented; known gaps are documented below and are being addressed.</p>
+  </div>
+
+  <h2>Our commitment</h2>
+  <p>artefac INC is committed to ensuring that artefac.digital is accessible to as many people as possible, including those using assistive technologies such as screen readers, keyboard navigation, voice control, and display magnification. We take accessibility seriously not because of checkbox compliance, but because exclusion is a poor foundation for any technology company — and because Canadian government procurement increasingly requires it.</p>
+
+  <h2>Measures implemented</h2>
+  <p>The following measures have been applied to the current version of the site:</p>
+  <ul>
+    <li><strong>Skip navigation link</strong> — a "Skip to main content" link is the first focusable element on every page, allowing keyboard users to bypass repeated navigation.</li>
+    <li><strong>Semantic HTML landmarks</strong> — <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;section&gt;</code> elements are used to provide document structure readable by screen readers.</li>
+    <li><strong>ARIA labels</strong> — all navigation regions, interactive controls, and social media links carry descriptive <code>aria-label</code> attributes. Decorative icons are marked <code>aria-hidden="true"</code>.</li>
+    <li><strong>Keyboard accessibility</strong> — all interactive elements (links, buttons, the mobile hamburger menu) are reachable and operable by keyboard alone. The mobile menu manages focus correctly on open and close, and traps focus within the overlay.</li>
+    <li><strong>Visible focus styles</strong> — all focusable elements have a visible <code>:focus-visible</code> outline (3px, <code>#2D6B4A</code>) that meets the WCAG 2.2 focus appearance requirements. The navigation CTA uses a high-contrast gold outline on the dark background.</li>
+    <li><strong>Colour contrast</strong> — foreground/background combinations have been audited. Body text (<code>#3A3A3A</code> on white) meets 10:1; muted text (<code>#6B6B6B</code> on white) meets 5.9:1; white text on the dark-green government section meets minimum 4.5:1 AA at all opacity levels used.</li>
+    <li><strong>Reduced motion</strong> — a <code>@media (prefers-reduced-motion: reduce)</code> block disables all CSS transitions and scroll animations for users who have indicated this preference in their OS settings.</li>
+    <li><strong>Responsive layout</strong> — the page reflows correctly at 320 px width and at 400% browser zoom without horizontal scrolling, meeting WCAG 1.4.10 (Reflow).</li>
+    <li><strong>Language declaration</strong> — <code>lang="en"</code> is set on the <code>&lt;html&gt;</code> element of every page.</li>
+    <li><strong>Link purpose</strong> — all links that open in a new tab include an <code>aria-label</code> noting "(opens in new tab)".</li>
+    <li><strong>No auto-play media</strong> — the site contains no auto-playing audio or video.</li>
+  </ul>
+
+  <h2>Known limitations</h2>
+  <p>The following issues have been identified and are scheduled for resolution:</p>
+  <ul>
+    <li><strong>Emoji in body text</strong> — several emoji characters are used in headings and body copy without <code>role="img"</code> or <code>aria-label</code> overrides. Screen readers will announce them by their Unicode name, which may be verbose or confusing. Fix planned: wrap decorative emoji in <code>&lt;span aria-hidden="true"&gt;</code>.</li>
+    <li><strong>Mobile hamburger menu — escape key</strong> — the Escape key does not yet close the mobile navigation menu and return focus to the trigger button. Fix in progress.</li>
+    <li><strong>Third-party embeds</strong> — any future third-party embeds (forms, calendars, chat widgets) may introduce accessibility gaps outside our direct control. Each will be evaluated before deployment.</li>
+    <li><strong>No formal VPAT or audit on file</strong> — a full third-party WCAG audit has not yet been conducted. One is planned for Q1 2027 in preparation for government tender submissions.</li>
+  </ul>
+
+  <h2>Technical approach</h2>
+  <p>Accessibility on this site is implemented directly in the underlying HTML, CSS, and JavaScript. We do not use third-party overlay or widget products that claim to retrofit accessibility post-hoc. Overlays cannot substitute for properly structured markup and are not accepted as evidence of conformance by the Canadian government's <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601" target="_blank" rel="noopener noreferrer" aria-label="TBS Standard on Web Accessibility (opens in new tab)">Standard on Web Accessibility</a> or the W3C's WCAG 2.1 specification.</p>
+
+  <h2>Standards referenced</h2>
+  <ul>
+    <li><a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer" aria-label="WCAG 2.1 specification (opens in new tab)">Web Content Accessibility Guidelines (WCAG) 2.1</a>, W3C Recommendation</li>
+    <li><a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=23601" target="_blank" rel="noopener noreferrer" aria-label="TBS Standard on Web Accessibility (opens in new tab)">Standard on Web Accessibility</a>, Treasury Board of Canada Secretariat</li>
+    <li><a href="https://www.ontario.ca/laws/regulation/110191" target="_blank" rel="noopener noreferrer" aria-label="AODA IASR (opens in new tab)">Accessibility for Ontarians with Disabilities Act (AODA)</a> — Integrated Accessibility Standards Regulation</li>
+  </ul>
+
+  <div class="contact-box">
+    <h2>Report an accessibility issue</h2>
+    <p>If you experience a barrier on artefac.digital, or if a page or feature is not working with your assistive technology, please contact us. We will respond within 5 business days and aim to resolve confirmed barriers promptly.</p>
+    <p>
+      <strong>Email:</strong> <a href="mailto:info@artefac.com">info@artefac.com</a><br>
+      <strong>Phone:</strong> <a href="tel:6479991198">647-999-1198</a><br>
+      <strong>Subject line:</strong> Accessibility — artefac.digital
+    </p>
+    <p style="margin-top:1rem;font-size:13px;color:var(--ink-muted);">Please describe the page URL, the assistive technology and browser you are using, and the specific barrier you encountered. This helps us reproduce and fix the issue quickly.</p>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <p>&copy; 2004&ndash;2026 ARTEFAC INC. All rights reserved. Mississauga, Ontario, Canada. &nbsp;&middot;&nbsp; <a href="/">artefac.digital</a></p>
+</footer>
+
+</body>
+</html>
