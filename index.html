@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;6h00;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
 --ink: #0D0D0D;
@@ -1052,6 +1052,18 @@ footer { border-top: 3px solid var(--gold) !important; }
 hr { border-color: var(--gold); opacity: 0.4; }
 .nav-cta { outline: 1px solid rgba(201,168,76,0.4); outline-offset: 2px; }
 /* ===== END GOLD ACCENT SYSTEM ===== */
+
+/* FIX: footer navs inherit fixed positioning — reset them */
+footer nav {
+  position: static !important;
+  height: auto !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  padding: 0 !important;
+  display: block !important;
+  z-index: auto !important;
+}
 </style>
 </head>
 <body>
