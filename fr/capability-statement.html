@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTeFAC Digital – Énoncé de capacité IA gouvernementale</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.4;
+  }
+
+  @page {
+    size: Letter portrait;
+    margin: 0;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .no-print { display: none; }
+    .page { page-break-inside: avoid; }
+  }
+
+  .page {
+    width: 216mm;
+    min-height: 279mm;
+    margin: 0 auto;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: #1a3728;
+    color: #fff;
+    padding: 18px 28px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-brand {}
+  .header-brand .org-name {
+    font-size: 19pt;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+  .header-brand .org-name span { color: #6fcf97; }
+  .header-brand .tagline {
+    font-size: 8.5pt;
+    color: #a8d5b5;
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+  }
+  .header-doc-title {
+    text-align: right;
+  }
+  .header-doc-title .doc-label {
+    font-size: 7pt;
+    color: #6fcf97;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .header-doc-title .doc-name {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 2px;
+  }
+  .header-doc-title .doc-date {
+    font-size: 7.5pt;
+    color: #a8d5b5;
+    margin-top: 3px;
+  }
+
+  /* ── CREDENTIAL BAR ── */
+  .cred-bar {
+    background: #f0fdf4;
+    border-top: 2px solid #6fcf97;
+    border-bottom: 1px solid #d1fae5;
+    padding: 6px 28px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .cred-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 7.5pt;
+    color: #1a3728;
+  }
+  .cred-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2d6a4f;
+    flex-shrink: 0;
+  }
+  .cred-dot.amber { background: #d97706; }
+  .cred-item strong { font-weight: 600; }
+
+  /* ── BODY GRID ── */
+  .body-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 58% 42%;
+    gap: 0;
+    padding: 16px 28px 12px;
+    column-gap: 20px;
+  }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 13px; }
+  .section-title {
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #2d6a4f;
+    border-bottom: 1px solid #d1fae5;
+    padding-bottom: 3px;
+    margin-bottom: 7px;
+  }
+
+  /* ── COMPANY OVERVIEW ── */
+  .company-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 12px;
+  }
+  .fact-item {}
+  .fact-label { font-size: 7pt; color: #6b7280; }
+  .fact-value { font-size: 8.5pt; font-weight: 600; color: #1a1a1a; }
+
+  /* ── CAPABILITIES ── */
+  .caps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 10px;
+  }
+  .cap-item {
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  .cap-icon {
+    width: 14px;
+    height: 14px;
+    background: #1a3728;
+    border-radius: 3px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .cap-icon svg { width: 9px; height: 9px; fill: #6fcf97; }
+  .cap-text { font-size: 8pt; color: #1a1a1a; line-height: 1.3; }
+  .cap-text strong { font-weight: 600; display: block; font-size: 8pt; }
+  .cap-text span { font-size: 7pt; color: #4b5563; }
+
+  /* ── USE CASES ── */
+  .usecases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .usecase-item {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .uc-bullet {
+    width: 4px;
+    height: 4px;
+    background: #2d6a4f;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .uc-text { font-size: 8pt; color: #1a1a1a; }
+
+  /* ── RIGHT COLUMN ── */
+  .right-col {}
+
+  /* ── PROCUREMENT ── */
+  .procurement-box {
+    background: #f0fdf4;
+    border: 1px solid #6fcf97;
+    border-radius: 5px;
+    padding: 10px 12px;
+    margin-bottom: 13px;
+  }
+  .procurement-box .section-title { border-color: #6fcf97; }
+  .proc-item {
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #d1fae5;
+  }
+  .proc-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .proc-item-label { font-size: 7pt; color: #2d6a4f; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .proc-item-value { font-size: 8pt; color: #1a1a1a; margin-top: 1px; }
+  .status-badge {
+    display: inline-block;
+    font-size: 7pt;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-top: 3px;
+  }
+  .status-active { background: #d1fae5; color: #065f46; }
+  .status-submitted { background: #fef3c7; color: #92400e; }
+
+  /* ── RESPONSIBLE AI ── */
+  .resp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 8px;
+  }
+  .resp-item {
+    display: flex;
+    gap: 5px;
+    align-items: flex-start;
+    font-size: 7.5pt;
+    color: #1a1a1a;
+  }
+  .resp-check {
+    color: #2d6a4f;
+    font-weight: 700;
+    font-size: 8pt;
+    flex-shrink: 0;
+    margin-top: -1px;
+  }
+
+  /* ── TECH ── */
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .tech-tag {
+    font-size: 7pt;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 3px;
+    padding: 2px 6px;
+    color: #374151;
+  }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    background: #1a3728;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 12px;
+  }
+  .contact-box .section-title { color: #6fcf97; border-color: #2d6a4f; }
+  .contact-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 8pt;
+    color: #d1fae5;
+  }
+  .contact-row svg { width: 10px; height: 10px; fill: #6fcf97; flex-shrink: 0; }
+  .contact-row a { color: #a8d5b5; text-decoration: none; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    padding: 6px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-note {
+    font-size: 6.5pt;
+    color: #9ca3af;
+    max-width: 70%;
+  }
+  .footer-url {
+    font-size: 7pt;
+    color: #2d6a4f;
+    font-weight: 600;
+  }
+
+  /* ── PRINT BUTTON (screen only) ── */
+  .print-bar {
+    text-align: center;
+    padding: 16px;
+    background: #f0fdf4;
+    border-bottom: 1px solid #d1fae5;
+  }
+  .print-bar button {
+    background: #1a3728;
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    font-size: 10pt;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .print-bar p {
+    margin-top: 6px;
+    font-size: 8pt;
+    color: #6b7280;
+  }
+  @media print { .print-bar { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <button onclick="window.print()">Imprimer / Enregistrer en PDF</button>
+  <p>Utilisez la boîte de dialogue Imprimer de votre navigateur → « Enregistrer en PDF » ou « Microsoft Print to PDF »</p>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="org-name">ARTE<span>FAC</span> Digital</div>
+      <div class="tagline">Automatisation par IA pour le secteur public et l'entreprise</div>
+    </div>
+    <div class="header-doc-title">
+      <div class="doc-label">Énoncé de capacité</div>
+      <div class="doc-name">Gouvernement &amp; secteur public</div>
+      <div class="doc-date">Septembre 2026 · artefac.digital/fr/government</div>
+    </div>
+  </header>
+
+  <!-- CREDENTIAL BAR -->
+  <div class="cred-bar">
+    <div class="cred-item">
+      <div class="cred-dot"></div>
+      <strong>Société canadienne</strong>
+    </div>
+    <div class="cred-item">
+      <div class="cred-dot"></div>
+      <strong>Basée en Ontario</strong>&nbsp;(Mississauga)
+    </div>
+    <div class="cred-item">
+      <div class="cred-dot"></div>
+      <strong>En activité depuis 2004</strong>
+    </div>
+    <div class="cred-item">
+      <div class="cred-dot amber"></div>
+      <strong>Liste de sources IA du SPAC</strong>&nbsp;– Candidature Bande 1 (soumise)
+    </div>
+    <div class="cred-item">
+      <div class="cred-dot"></div>
+      <strong>Réseau d'affaires SAP</strong>&nbsp;– Actif
+    </div>
+    <div class="cred-item">
+      <div class="cred-dot"></div>
+      <strong>AchatsCanda</strong>&nbsp;– Actif
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+
+      <!-- Company Overview -->
+      <div class="section">
+        <div class="section-title">Profil de l'entreprise</div>
+        <div class="company-facts">
+          <div class="fact-item">
+            <div class="fact-label">Entité juridique</div>
+            <div class="fact-value">ARTEFAC INC.</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Marque commerciale</div>
+            <div class="fact-value">ARTeFAC Digital</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Constituée en société</div>
+            <div class="fact-value">Canada (Ontario)</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Fondée en</div>
+            <div class="fact-value">2004 (22 ans)</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Zone de service</div>
+            <div class="fact-value">Partout au Canada</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Secteurs cibles</div>
+            <div class="fact-value">Gouvernement, Entreprise</div>
+          </div>
+        </div>
+        <p style="font-size:7.5pt; color:#4b5563; margin-top:8px; line-height:1.5;">
+          ARTeFAC Digital conçoit et déploie des systèmes d'automatisation par IA, d'intelligence documentaire et d'assistants de connaissances pour les organisations du secteur public canadien. Nous aidons les ministères fédéraux, les ministères provinciaux et les municipalités à réduire les traitements manuels, à améliorer l'accès à l'information et à déployer l'IA de manière responsable — avec une supervision humaine intégrée à chaque point de décision.
+        </p>
+      </div>
+
+      <!-- Core AI Capabilities -->
+      <div class="section">
+        <div class="section-title">Capacités IA principales</div>
+        <div class="caps-grid">
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Traitement intelligent des documents</strong>
+              <span>Classification, extraction, routage de formulaires et dossiers gouvernementaux</span>
+            </div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Assistants de connaissances IA</strong>
+              <span>Recherche de politiques, bots FAQ, RAG sur dépôts documentaires approuvés</span>
+            </div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Automatisation des processus</strong>
+              <span>Flux de bout en bout avec pistes d'audit et points de contrôle d'approbation</span>
+            </div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Intégration de pipelines de données</strong>
+              <span>Systèmes de données gouvernementaux, API, connecteurs de plateformes héritées</span>
+            </div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Interfaces IA orientées citoyens</strong>
+              <span>Assistants d'intake accessibles, support multilingue, WCAG 2.1 AA</span>
+            </div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Automatisation des rapports et analyses</strong>
+              <span>Résumés automatisés, tableaux de bord et rapports de conformité</span>
+            </div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Systèmes humain dans la boucle</strong>
+              <span>Recommandations IA avec révision humaine obligatoire aux points de décision</span>
+            </div>
+          </div>
+          <div class="cap-item">
+            <div class="cap-icon">
+              <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+            </div>
+            <div class="cap-text">
+              <strong>Gouvernance IA et pistes d'audit</strong>
+              <span>Journalisation, sorties d'explicabilité et tableaux de bord de supervision</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Public Sector Use Cases -->
+      <div class="section">
+        <div class="section-title">Domaines d'application dans le secteur public</div>
+        <div class="usecases-list">
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text"><strong>Administration des prestations et subventions</strong> — Intake assisté par IA, vérification d'admissibilité, validation de documents</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text"><strong>Surveillance réglementaire et conformité</strong> — Révision automatisée des documents par rapport aux bibliothèques de politiques</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text"><strong>Gestion des connaissances internes</strong> — Recherche de politiques indexée, assistants d'intégration, bots RH</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text"><strong>Intelligence en approvisionnement et contrats</strong> — Extraction de clauses, signalement des risques, traitement des documents fournisseurs</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text"><strong>Soutien aux inspections et à l'application</strong> — Génération de rapports, balisage des preuves, résumé de dossiers</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text"><strong>Communications publiques</strong> — Résumés en langage clair accessibles, ébauches de contenu multilingue</div></div>
+        </div>
+      </div>
+
+      <!-- Responsible AI -->
+      <div class="section">
+        <div class="section-title">IA responsable et approche de gouvernance</div>
+        <div class="resp-grid">
+          <div class="resp-item"><div class="resp-check">✓</div><div>Humain dans la boucle aux points de décision</div></div>
+          <div class="resp-item"><div class="resp-check">✓</div><div>Piste d'audit complète et journalisation</div></div>
+          <div class="resp-item"><div class="resp-check">✓</div><div>Test de biais et évaluation d'impact</div></div>
+          <div class="resp-item"><div class="resp-check">✓</div><div>Sorties d'explicabilité</div></div>
+          <div class="resp-item"><div class="resp-check">✓</div><div>Minimisation des données par conception</div></div>
+          <div class="resp-item"><div class="resp-check">✓</div><div>Alignement LPRPDE / Loi sur la protection des renseignements personnels</div></div>
+          <div class="resp-item"><div class="resp-check">✓</div><div>Sensibilisation à la Directive sur la prise de décision automatisée</div></div>
+          <div class="resp-item"><div class="resp-check">✓</div><div>Aucun partage non autorisé de données avec des tiers</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+      <!-- Procurement Status -->
+      <div class="procurement-box">
+        <div class="section-title">Statut d'approvisionnement et d'inscription</div>
+
+        <div class="proc-item">
+          <div class="proc-item-label">Liste de sources d'intelligence artificielle du SPAC</div>
+          <div class="proc-item-value">Candidature Bande 1 – Numéro de sollicitation WS4286933967</div>
+          <span class="status-badge status-submitted">Candidature soumise</span>
+          <div style="font-size:6.5pt; color:#6b7280; margin-top:3px;">Les décisions formelles de qualification relèvent du SPAC. Cet énoncé n'implique pas d'approbation.</div>
+        </div>
+
+        <div class="proc-item">
+          <div class="proc-item-label">Réseau d'affaires SAP (Ariba)</div>
+          <div class="proc-item-value">ARTEFAC INC.</div>
+          <span class="status-badge status-active">Actif</span>
+        </div>
+
+        <div class="proc-item">
+          <div class="proc-item-label">Registre des fournisseurs AchatsCanda</div>
+          <div class="proc-item-value">Inscrit et actif</div>
+          <span class="status-badge status-active">Actif</span>
+        </div>
+
+        <div class="proc-item">
+          <div class="proc-item-label">Méthodes d'approvisionnement prises en charge</div>
+          <div class="proc-item-value" style="font-size:7.5pt;">Autorisation de tâche · Offre à commandes · Arrangement en matière d'approvisionnement · Fournisseur exclusif (si permis) · Entrepreneur principal · Sous-traitant</div>
+        </div>
+      </div>
+
+      <!-- Technology Platform -->
+      <div class="section">
+        <div class="section-title">Plateforme technologique</div>
+        <p style="font-size:7.5pt; color:#4b5563; margin-bottom:6px; line-height:1.4;">Architecture neutre vis-à-vis des fournisseurs. Nous sélectionnons les outils les plus appropriés aux exigences de sécurité, de performance et de coût de chaque mandat.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">OpenAI / Azure OpenAI</span>
+          <span class="tech-tag">Anthropic Claude</span>
+          <span class="tech-tag">Google AI / Gemini</span>
+          <span class="tech-tag">LLMs open source</span>
+          <span class="tech-tag">RAG / Recherche vectorielle</span>
+          <span class="tech-tag">API REST / GraphQL</span>
+          <span class="tech-tag">Python · Node.js</span>
+          <span class="tech-tag">PostgreSQL · Pinecone</span>
+          <span class="tech-tag">Azure · AWS · GCP</span>
+          <span class="tech-tag">Options sur site</span>
+        </div>
+      </div>
+
+      <!-- Accessibility -->
+      <div class="section">
+        <div class="section-title">Engagement en matière d'accessibilité</div>
+        <div class="usecases-list">
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text">Norme de conception WCAG 2.1 niveau AA</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text">Alignement sur l'accessibilité européenne EN 301 549</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text">Principes d'IA accessible CAN-ASC-6.2</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text">Sensibilisation à la Loi canadienne sur l'accessibilité (L.C. 2019, ch. 10)</div></div>
+          <div class="usecase-item"><div class="uc-bullet"></div><div class="uc-text">Options de sortie en langage clair pour les réponses IA</div></div>
+        </div>
+      </div>
+
+      <!-- Subcontracting -->
+      <div class="section">
+        <div class="section-title">Disponibilité entrepreneur principal / sous-traitant</div>
+        <p style="font-size:7.5pt; color:#4b5563; line-height:1.5;">
+          ARTeFAC Digital est disponible en tant qu'<strong>entrepreneur principal</strong> pour les mandats appropriés et en tant que <strong>sous-traitant ou partenaire d'équipe</strong> pour les grands intégrateurs nécessitant une capacité spécialisée en automatisation par IA. Nous maintenons la flexibilité nécessaire pour structurer des arrangements adaptés aux exigences de chaque demande de soumission.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact-box">
+        <div class="section-title">Contact approvisionnement gouvernemental</div>
+        <div class="contact-row">
+          <svg viewBox="0 0 10 10"><path d="M1 2.5h8v5a.5.5 0 01-.5.5h-7a.5.5 0 01-.5-.5v-5zm0 0l4 3 4-3"/></svg>
+          <a href="mailto:info@artefac.digital">info@artefac.digital</a>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 10 10"><path d="M2 1.5c0 0 .5 1.5.5 2.5S1.5 5.5 2 6.5 5 9 6 9s2-.5 2.5-1 .5-1.5.5-1.5L8 5.5c-.5-.5-1-.5-1-.5s-.5.5-1 .5-2-1.5-2-2 .5-1 .5-1L3.5 1c0 0-1 0-1.5.5z"/></svg>
+          <span>+1 647-999-1198</span>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4"/><path d="M5 1v4l2.5 2.5"/></svg>
+          <span>Mississauga, Ontario · Canada</span>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="1"/></svg>
+          <a href="https://artefac.digital/fr/government">artefac.digital/fr/government</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-note">
+      ARTEFAC INC. · Société canadienne · Ontario, Canada · En activité depuis 2004.
+      Ce document est fourni à des fins d'information sur l'approvisionnement. Les affirmations concernant les listes de fournisseurs du SPAC reflètent uniquement le statut de candidature ; les décisions formelles relèvent de l'autorité gouvernementale compétente.
+      Exactitude au septembre 2026.
+    </div>
+    <div class="footer-url">artefac.digital/fr/government</div>
+  </footer>
+
+</div>
+</body>
+</html>
